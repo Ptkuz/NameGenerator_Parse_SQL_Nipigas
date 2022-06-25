@@ -16,7 +16,7 @@ namespace GeneratePersons
         {
         }
 
-        public virtual DbSet<NameGenerator> NameGenerators { get; set; } = null!;
+        public virtual DbSet<FakeIdentity> NameGenerators { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,7 +29,7 @@ namespace GeneratePersons
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<NameGenerator>(entity =>
+            modelBuilder.Entity<FakeIdentity>(entity =>
             {
                 entity.ToTable("NameGenerator");
 

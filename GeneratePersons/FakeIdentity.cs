@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GeneratePersons
 {
-    public partial class NameGenerator
+    public partial class FakeIdentity
     {
         public int Id { get; set; }
         public string PersonName { get; set; } = null!;

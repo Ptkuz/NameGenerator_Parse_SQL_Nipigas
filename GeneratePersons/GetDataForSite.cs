@@ -6,7 +6,7 @@ namespace GeneratePersons
     public static class GetDataForSite
     {
         private static int count = 1;
-        public static async Task<List<NameGenerator>> GetData()
+        public static async Task<List<FakeIdentity>> GetData()
         {
             Console.WriteLine("!!!ГЕНЕРИРОВАНИЕ ЛИЧНОСТЕЙ И ЗАПИСЬ В КОЛЛЕКЦИЮ LIST И БАЗУ ДАННЫХ!!!");
 
@@ -17,7 +17,7 @@ namespace GeneratePersons
                 Console.WriteLine();
                 Console.WriteLine("Получение данных с сайта генерирование личностей");
 
-                List<NameGenerator> fakeIdentities = new List<NameGenerator>();
+                List<FakeIdentity> fakeIdentities = new List<FakeIdentity>();
 
                 for (int i = 0; i < 20; i++)
                 {
@@ -40,7 +40,7 @@ namespace GeneratePersons
                     string cvc2 = document.DocumentNode.SelectNodes("//*[@id=\"details\"]/div[2]/div[2]/div/div[2]/dl[16]/dd/text()").First().InnerText;
 
 
-                    NameGenerator identity = new NameGenerator()
+                    FakeIdentity identity = new FakeIdentity()
                     {
                         PersonName =
                         document.DocumentNode.SelectNodes("//*[@id=\"details\"]/div[2]/div[2]/div/div[1]/h3").First().InnerText,
@@ -112,7 +112,7 @@ namespace GeneratePersons
         }
 
 
-        public static async Task<List<NameGenerator>> AddDataToDB(List<NameGenerator> peoples)
+        public static async Task<List<FakeIdentity>> AddDataToDB(List<FakeIdentity> peoples)
         {
             try
             {
@@ -156,7 +156,7 @@ namespace GeneratePersons
             }
         }
 
-        public static async Task ChangeGUID(List<NameGenerator> nameGenerators)
+        public static async Task ChangeGUID(List<FakeIdentity> nameGenerators)
         {
             try
             {
@@ -221,7 +221,7 @@ namespace GeneratePersons
 
         }
 
-        public static void ViewList(List<NameGenerator> nameGenerators)
+        public static void ViewList(List<FakeIdentity> nameGenerators)
         {
             try
             {
