@@ -3,10 +3,10 @@ using Microsoft.Data.SqlClient;
 
 try
 {
-    List<FakeIdentity> peoples = await GetDataForSite.GetData();
-    peoples = await GetDataForSite.AddDataToDB(peoples);
-    await GetDataForSite.ChangeGUID(peoples);
-    GetDataForSite.ViewList(peoples);
+    List<FakeIdentity> peoples = await DataOperations.GetData();
+    peoples = await DataOperations.AddDataToDB(peoples);
+    await DataOperations.ChangeGUID(peoples);
+    DataOperations.ViewList(peoples);
 }
 
 catch (HttpRequestException)

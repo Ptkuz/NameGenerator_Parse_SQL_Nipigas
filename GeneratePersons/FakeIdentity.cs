@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace GeneratePersons
 {
+    // Класс личностей
     public partial class FakeIdentity
     {
         public int Id { get; set; }
