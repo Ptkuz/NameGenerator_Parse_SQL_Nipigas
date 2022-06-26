@@ -20,7 +20,7 @@ catch (SqlException)
 }
 catch (Exception)
 {
-    throw;
+    Console.WriteLine("Непредвиденная ошибка!");
 }
 
 
