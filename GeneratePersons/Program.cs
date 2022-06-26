@@ -11,7 +11,7 @@ try
 
 catch (HttpRequestException)
 {
-    Console.WriteLine("Проблема с с сетевым подключением или сайтом генерирования личностей!");
+    Console.WriteLine("Проблема с сетевым подключением или сайтом генерирования личностей!");
 }
 
 catch (SqlException)
