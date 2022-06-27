@@ -7,6 +7,7 @@ namespace GeneratePersons
 {
     public partial class NipigasDBContext : DbContext
     {
+
         public NipigasDBContext()
         {
         }
@@ -18,13 +19,13 @@ namespace GeneratePersons
 
         public virtual DbSet<FakeIdentity> NameGenerators { get; set; } = null!;
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=GURREX\\SQLEXPRESS;Database=NipigasDB;MultipleActiveResultSets=True;Trusted_Connection=True;TrustServerCertificate=true;");
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer("Server=GURREX\\SQLEXPRESS;Database=NipigasDB;MultipleActiveResultSets=True;Trusted_Connection=True;TrustServerCertificate=true;");
+        //    }
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

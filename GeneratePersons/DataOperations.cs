@@ -148,7 +148,7 @@ namespace GeneratePersons
                 Console.WriteLine("Заполнение таблицы базы данных из коллекции List");
                 Console.WriteLine();
                 int count = 0;
-                using (NipigasDBContext db = new NipigasDBContext())
+                using (NipigasDBContext db = new NipigasDBContext(Builder.CreateBuild()))
                 {
                     for (int i = 0; i < peoples.Count; i++)
                     {
@@ -194,7 +194,7 @@ namespace GeneratePersons
                 Console.WriteLine();
                 Console.WriteLine("Установка GUID личностей");
                 Console.WriteLine();
-                using (NipigasDBContext db = new NipigasDBContext())
+                using (NipigasDBContext db = new NipigasDBContext(Builder.CreateBuild()))
                 {
                     var people = db.NameGenerators.ToList();
                     foreach (var item in nameGenerators)
@@ -225,9 +225,10 @@ namespace GeneratePersons
         {
             try
             {
+               
                 Console.WriteLine();
                 Console.WriteLine("Провека, заполнена ли таблица базы данных значениями");
-                using var db = new NipigasDBContext();
+                using var db = new NipigasDBContext(Builder.CreateBuild());
                 var person = db.NameGenerators.FirstOrDefault();
 
                 if (person is not null)
@@ -261,7 +262,7 @@ namespace GeneratePersons
             {
                 Console.WriteLine();
                 int count = 0;
-                using var db = new NipigasDBContext();
+                using var db = new NipigasDBContext(Builder.CreateBuild());
                 var people = db.NameGenerators.ToList();
                 foreach (var person in nameGenerators)
                 {

@@ -1,12 +1,19 @@
 ﻿using GeneratePersons;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 try
 {
+
+    Builder.CreateBuild();
     List<FakeIdentity> peoples = await DataOperations.GetData();
     peoples = await DataOperations.AddDataToDB(peoples);
     await DataOperations.ChangeGUID(peoples);
     DataOperations.ViewList(peoples);
+
+   
 }
 
 catch (HttpRequestException)
