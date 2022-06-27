@@ -5,7 +5,12 @@ namespace GeneratePersons
 {
     internal class Builder
     {
-        public static DbContextOptions<NipigasDBContext> CreateBuild()
+        private static DbContextOptions<NipigasDBContext> connect;
+        public static DbContextOptions<NipigasDBContext> Connect =>
+            connect ??= CreateBuild();
+
+
+        private static DbContextOptions<NipigasDBContext> CreateBuild()
         {
             var builder = new ConfigurationBuilder();
             builder.SetBasePath(Directory.GetCurrentDirectory());

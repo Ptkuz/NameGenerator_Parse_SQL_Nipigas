@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 try
 {
 
-    Builder.CreateBuild();
     List<FakeIdentity> peoples = await DataOperations.GetData();
     peoples = await DataOperations.AddDataToDB(peoples);
     await DataOperations.ChangeGUID(peoples);
